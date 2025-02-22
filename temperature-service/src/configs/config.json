@@ -1,0 +1,24 @@
+{
+  "nodeEnv": "local",
+  "version": "__UNSET__",
+  "port": 4006,
+  "sentry": {
+    "dsn": "_",
+    "tracesSampleRate": 0.1,
+    "profilesSampleRate": 1,
+    "sampleRate": 1,
+    "isEnabled": false
+  },
+  "gcloud": {
+    "location": "projects/guest-lecture-2025/locations/europe-west1"
+  },
+  "temperature": {
+    "threshold": 37.5,
+    "recipient": "kristof.detroch+guest-lecture@panenco.com"
+  },
+  "sendgrid": {
+    "apiKey": "SG.sendgrid_api_key",
+    "from": "guest-lecture@panenco.com"
+  },
+  "commitHash": "_"
+}

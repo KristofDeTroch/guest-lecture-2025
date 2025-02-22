@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        .container {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .warning {
+            color: #cc3300;
+            font-weight: bold;
+        }
+        .temperature {
+            font-size: 24px;
+            color: #cc3300;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Temperature Warning Alert</h2>
+        
+        <p class="warning">Warning: High Temperature Detected!</p>
+        
+        <p>The current temperature is: <span class="temperature">{{temperature}}°C</span></p>
+        
+        <p>This temperature exceeds normal operating parameters. Please take appropriate action immediately.</p>
+        
+        <p>Best regards,<br>
+        Temperature Monitoring System</p>
+    </div>
+</body>
+</html>
