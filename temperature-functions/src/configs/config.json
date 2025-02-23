@@ -10,10 +10,7 @@
     "isEnabled": false
   },
   "gcloud": {
-    "location": "projects/guest-lecture-2025/locations/europe-west1",
-    "pubsubTopics": {
-      "email": "email-topic"
-    }
+    "location": "projects/guest-lecture-2025/locations/europe-west1"
   },
   "temperature": {
     "threshold": 37.5,

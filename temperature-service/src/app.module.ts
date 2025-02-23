@@ -1,7 +1,7 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { APP_FILTER, APP_INTERCEPTOR } from '@nestjs/core';
 import { SentryGlobalFilter, SentryModule } from '@sentry/nestjs/setup';
-import { EmailService } from './services/email.service';
+import { PublisherService } from './services/publiser.service';
 import { importClasses } from './utils/import.classes';
 import { HeadersInterceptor } from './utils/init.headers';
 import { initSentry, SentryContextMiddleware } from './utils/init.sentry';
@@ -26,7 +26,7 @@ console.log(`Loading ${controllers.length} controllers: ${controllers.map((h) =>
       provide: APP_INTERCEPTOR,
       useClass: HeadersInterceptor,
     },
-    EmailService,
+    PublisherService,
     ...commandHandlers,
   ],
 })

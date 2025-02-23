@@ -4,6 +4,10 @@ terraform {
       source  = "hashicorp/google"
       version = "6.20.0"
     }
+    archive = {
+      source  = "hashicorp/archive"
+      version = "2.7.0"
+    }
     null = {
       source  = "hashicorp/null"
       version = "3.2.1"
@@ -17,9 +21,7 @@ provider "google" {
   project     = var.google_project
 }
 
-
-provider "null" {
-
+provider "archive" {
 }
 
 locals {
@@ -35,7 +37,8 @@ locals {
     threshold = 37.5
     recipient = "kristof.detroch+guest-lecture@panenco.com"
   }
-  sendgrid_sender = "kristof.detroch+alert@panenco.com"
+  sendgrid_sender               = "kristof.detroch+alert@panenco.com"
+  compute_service_account_email = "712153936309-compute@developer.gserviceaccount.com"
 }
 
 module "temperature_service" {
@@ -46,8 +49,9 @@ module "temperature_service" {
     api_key = var.sendgrid_api_key
     sender  = local.sendgrid_sender
   }
-  commit_hash = var.commit_hash
-  env_prefix  = local.data.env_prefix
-  environment = local.data.environment
-  region      = local.data.region
+  commit_hash                   = var.commit_hash
+  env_prefix                    = local.data.env_prefix
+  environment                   = local.data.environment
+  region                        = local.data.region
+  compute_service_account_email = local.compute_service_account_email
 }
