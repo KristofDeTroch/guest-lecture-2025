@@ -35,3 +35,7 @@ variable "sendgrid" {
 variable "compute_service_account_email" {
   type = string
 }
+
+variable "email_dlq_alert_email" {
+  type = string
+}
