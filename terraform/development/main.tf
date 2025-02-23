@@ -39,6 +39,7 @@ locals {
   }
   sendgrid_sender               = "kristof.detroch+alert@panenco.com"
   compute_service_account_email = "712153936309-compute@developer.gserviceaccount.com"
+  email_dlq_alert_email         = "kristof.detroch+dead-letter@panenco.com"
 }
 
 module "temperature_service" {
@@ -54,4 +55,5 @@ module "temperature_service" {
   environment                   = local.data.environment
   region                        = local.data.region
   compute_service_account_email = local.compute_service_account_email
+  email_dlq_alert_email         = local.email_dlq_alert_email
 }
