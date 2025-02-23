@@ -24,6 +24,7 @@ resource "google_cloudfunctions2_function" "temperature_function" {
 
     environment_variables = {
       SENDGRID__FROM = var.sendgrid.sender
+      SENTRY__DSN    = var.sentry_dsn
     }
     dynamic "secret_environment_variables" {
       for_each = {

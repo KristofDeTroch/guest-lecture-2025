@@ -56,4 +56,5 @@ module "temperature_service" {
   region                        = local.data.region
   compute_service_account_email = local.compute_service_account_email
   email_dlq_alert_email         = local.email_dlq_alert_email
+  sentry_dsn                    = var.sentry_dsn
 }

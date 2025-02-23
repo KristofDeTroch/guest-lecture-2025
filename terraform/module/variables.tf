@@ -39,3 +39,7 @@ variable "compute_service_account_email" {
 variable "email_dlq_alert_email" {
   type = string
 }
+
+variable "sentry_dsn" {
+  type = string
+}
