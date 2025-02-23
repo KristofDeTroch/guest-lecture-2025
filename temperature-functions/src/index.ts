@@ -1,10 +1,14 @@
-import { HttpFunction } from "@google-cloud/functions-framework";
 import { CommunicationKey, EmailService } from "./services/email.service";
 import config from "./config.parser";
+import * as Sentry from "@sentry/google-cloud-serverless";
+
+Sentry.init({
+  dsn: config.sentry.dsn,
+});
 
 const emailService = new EmailService();
 
-export const temperatureWarning: HttpFunction = async (req, res) => {
+export const temperatureWarning = Sentry.wrapHttpFunction(async (req, res) => {
   const { temperature } = req.body;
   await emailService.sendEmail({
     key: CommunicationKey.temperatureWarning,
@@ -12,4 +16,4 @@ export const temperatureWarning: HttpFunction = async (req, res) => {
     recipient: { email: config.temperature.recipient },
   });
   res.status(200).send("Email sent");
-};
+});
